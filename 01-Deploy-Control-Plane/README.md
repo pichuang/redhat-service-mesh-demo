@@ -4,7 +4,6 @@
 3. Access to the OpenShift Container Platform Command-line Interface (CLI), commonly known as `oc`
 
 
-
 ## Deploy the Service Mesh control plane 
 ### Create new project named `istio-system`
 ```bash
@@ -98,20 +97,33 @@ pod/prometheus-6488c47945-9tq66              2/2     Running   0          5m43s
 ```
 
 - Expected Web view
-![](../images/01-installed-sevice-mesh-control-planes.png)
+![](../images/01-installed-service-mesh-control-plane.png)
 
 
 ### Create `Service Mesh Member Rolls`
 ```bash
-cat > << EOF
+cat > servicemeshmemberroll-default.yaml << EOF
+---
 apiVersion: maistra.io/v1
 kind: ServiceMeshMemberRoll
 metadata:
   name: default
-  namespace: openshift-operators
+  namespace: istio-system
 spec:
   members:
-    - your-project
-    - another-of-your-projects
+    # a list of projects joined into the service mesh
+    - bookinfo-red
+    - bookinfo-blue
 EOF
 ```
+
+> Note: Modify the default YAML to add your projects as members. You can add ANY number of projects, but a project can ONLY belong to 1 ServiceMeshMemberRoll resource.
+
+
+- Apply
+```bash
+oc create -n istio-system -f servicemeshmemberroll-default.yaml
+```
+
+- Expected Web view
+![](../images/01-added-service-mesh-member-roll.png)
