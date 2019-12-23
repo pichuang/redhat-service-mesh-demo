@@ -1,12 +1,10 @@
-
-
 ## Prerequisite
 ### View the specific of Operators `servicemeshoperator` available to the cluster from OperatorHub
 ```bash
 oc get packagemanifests {servicemeshoperator,kiali-ossm,jaeger-product,elasticsearch-operator} -n openshift-marketplace
 ```
 
-Expected Output
+- Expected Output
 ```bash
 NAME                     CATALOG             AGE
 servicemeshoperator      Red Hat Operators   11h
@@ -21,10 +19,6 @@ oc describe packagemanifests servicemeshoperator -n openshift-marketplace
 ```
 
 ## Install `Red Hat Service Mesh Operator`
-### Create new project named `istio-system`
-```bash
-oc new-project istio-system
-```
 
 ### Subscribe `service-mesh-subscription.yaml`
 ```bash
@@ -42,6 +36,7 @@ spec:
   sourceNamespace: openshift-marketplace
 ```
 
+- Apply
 ```bash
 oc apply -f service-mesh-subscription.yaml
 ```
@@ -51,7 +46,7 @@ oc apply -f service-mesh-subscription.yaml
 oc get sub -n openshift-operators
 ```
 
-Expected Output
+- Expected Output
 ```bash
 NAME                                                                PACKAGE                  SOURCE             CHANNEL
 elasticsearch-operator-4.2-redhat-operators-openshift-marketplace   elasticsearch-operator   redhat-operators   4.2
@@ -60,7 +55,7 @@ kiali-ossm-stable-redhat-operators-openshift-marketplace            kiali-ossm  
 servicemeshoperator                                                 servicemeshoperator      redhat-operators   1.0
 ```
 
-Excepted Web view
+- Excepted Web view
 ![](../images/00-installed-operators.png)
 
 
