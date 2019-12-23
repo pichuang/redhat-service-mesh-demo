@@ -127,3 +127,19 @@ oc create -n istio-system -f servicemeshmemberroll-default.yaml
 
 - Expected Web view
 ![](../images/01-added-service-mesh-member-roll.png)
+
+- Edit
+```
+oc edit smmr -n istio-system
+```
+
+### Validate `Service Mesh Member Rolls` is added
+```bash
+oc get smmr -n istio-system
+```
+
+- Expected Output
+```bash
+NAME      MEMBERS
+default   [bookinfo-red bookinfo-blue]
+```
