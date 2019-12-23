@@ -1,5 +1,5 @@
 ## Prerequisite
-### View the specific of Operators `servicemeshoperator` available to the cluster from OperatorHub
+### View the specific of Operator available to the cluster from OperatorHub
 ```bash
 oc get packagemanifests {servicemeshoperator,kiali-ossm,jaeger-product,elasticsearch-operator} -n openshift-marketplace
 ```
@@ -18,11 +18,11 @@ elasticsearch-operator   Red Hat Operators   11h
 oc describe packagemanifests servicemeshoperator -n openshift-marketplace
 ```
 
-## Install `Red Hat Service Mesh Operator`
+## Install Red Hat Service Mesh Operator
 
 ### Subscribe `service-mesh-subscription.yaml`
 ```bash
-cat service-mesh-subscription.yaml
+cat > service-mesh-subscription.yaml << EOF
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -34,6 +34,7 @@ spec:
   name: servicemeshoperator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
+EOF
 ```
 
 - Apply
