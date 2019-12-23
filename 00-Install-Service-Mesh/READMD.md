@@ -26,7 +26,7 @@ oc describe packagemanifests servicemeshoperator -n openshift-marketplace
 oc new-project istio-system
 ```
 
-### Create subscription object YAML `service-mesh-subscription.yaml`
+### Subscribe `service-mesh-subscription.yaml`
 ```bash
 cat service-mesh-subscription.yaml
 ---
@@ -46,7 +46,7 @@ spec:
 oc apply -f service-mesh-subscription.yaml
 ```
 
-### Validate subscription is successful
+### Validate the subscription is successed
 ```bash
 oc get sub -n openshift-operators
 ```
@@ -60,8 +60,7 @@ kiali-ossm-stable-redhat-operators-openshift-marketplace            kiali-ossm  
 servicemeshoperator                                                 servicemeshoperator      redhat-operators   1.0
 ```
 
-### Create an OperatorGroup object YAML file ``
-```bash
+Excepted Web view
+![](../images/00-installed-operators.png)
 
-```
 
