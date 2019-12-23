@@ -112,8 +112,7 @@ metadata:
 spec:
   members:
     # a list of projects joined into the service mesh
-    - bookinfo-red
-    - bookinfo-blue
+    - default
 EOF
 ```
 
