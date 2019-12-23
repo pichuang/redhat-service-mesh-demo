@@ -9,3 +9,4 @@
 ## References
 - [OpenShift 4.2 - Installing Red Hat OpenShift Service Mesh](https://docs.openshift.com/container-platform/4.2/service_mesh/service_mesh_install/installing-ossm.html)
 - [workshop6/service-mesh](https://gitlab.com/workshop6/service-mesh)
+- [theodor2311/istio](https://github.com/theodor2311/istio)
