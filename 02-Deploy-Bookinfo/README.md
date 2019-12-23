@@ -41,6 +41,9 @@ GATEWAY_URL=$(oc -n istio-system get route istio-ingressgateway -o jsonpath='{.s
 while true; do sleep 1; curl -s http://${GATEWAY_URL}/productpage | grep -o "<title>.*</title>";done
 ```
 
+![](../images/02-check-network-reachable.gif)
+
+
 ## Clean Up
 ```bash
 oc delete -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/${ISTIO_RELEASE}/samples/bookinfo/networking/bookinfo-gateway.yaml
