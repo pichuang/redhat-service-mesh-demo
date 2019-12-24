@@ -4,13 +4,13 @@
 3. Access to the OpenShift Container Platform Command-line Interface (CLI), commonly known as `oc`
 
 
-## Deploy the Service Mesh control plane 
-### Create new project named `istio-system`
+## 部署 Service Mesh Control Plane (SMCP) 
+### 新增專案名 `istio-system`
 ```bash
 oc new-project istio-system
 ```
 
-### Create `Service Mesh Control Plane`
+### 新增 `Service Mesh Control Plane` 物件
 ```bash
 cat > istio-installation.yaml << EOF
 ---
@@ -46,18 +46,18 @@ spec:
 EOF
 ```
 
-- Apply
+- 執行
 ```bash
 oc create -n istio-system -f istio-installation.yaml
 ```
 
-- Monitoring
+- 監視變更狀態
 ```bash
 # oc get pods -n istio-system -w
 watch -n2 oc get pods -n istio-system 
 ```
 
-### Validate `Service Mesh Control Plane` is installed
+### 驗證 `Service Mesh Control Plane` 已安裝完畢
 ```bash
 oc get smcp -n istio-system
 oc get deployment,pods -n istio-system
@@ -100,7 +100,7 @@ pod/prometheus-6488c47945-9tq66              2/2     Running   0          5m43s
 ![](../images/01-installed-service-mesh-control-plane.png)
 
 
-### Create `Service Mesh Member Rolls`
+### 新增 `Service Mesh Member Rolls`
 ```bash
 cat > servicemeshmemberroll-default.yaml << EOF
 ---
@@ -116,10 +116,10 @@ spec:
 EOF
 ```
 
-> Note: Modify the default YAML to add your projects as members. You can add ANY number of projects, but a project can ONLY belong to 1 ServiceMeshMemberRoll resource.
+> Note: 若有新增專案監控需求，請直接修改該 YAML。你可以新增任意數量的專案於此，但每一個專案僅能屬於 1 個 ServiceMeshMemberRoll 資源
 
 
-- Apply
+- 執行
 ```bash
 oc create -n istio-system -f servicemeshmemberroll-default.yaml
 ```
@@ -127,12 +127,12 @@ oc create -n istio-system -f servicemeshmemberroll-default.yaml
 - Expected Web view
 ![](../images/01-added-service-mesh-member-roll.png)
 
-- Edit
+- 修改
 ```
 oc edit smmr -n istio-system
 ```
 
-### Validate `Service Mesh Member Rolls` is added
+### 驗證 `Service Mesh Member Rolls` 已被新增
 ```bash
 oc get smmr -n istio-system
 ```

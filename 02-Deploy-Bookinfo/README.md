@@ -9,7 +9,7 @@ BOOKINFO_PROJECT=bookinfo-red && echo $BOOKINFO_PROJECT
 ISTIO_RELEASE=$(curl --silent https://api.github.com/repos/istio/istio/releases/latest |grep -Po '"tag_name": "\K.*?(?=")') && echo $ISTIO_RELEASE
 ```
 
-### Deploy Microservices App into specific project
+### 部署 bookinfo 於指定的專案中
 ```bash
 # Create Project
 oc new-project $BOOKINFO_PROJECT
@@ -32,7 +32,7 @@ oc apply -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/$
 ![](../images/02-deploy-bookinfo.gif)
 
 
-### Get the Ingress Gateway
+### 獲得 Ingress Gateway 的網址，並測試連通性
 ```bash
 # Get Ingress GW URL
 GATEWAY_URL=$(oc -n istio-system get route istio-ingressgateway -o jsonpath='{.spec.host}') && echo $GATEWAY_URL
