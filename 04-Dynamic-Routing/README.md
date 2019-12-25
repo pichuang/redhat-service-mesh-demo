@@ -27,7 +27,7 @@ oc apply -n $BOOKINFO_PROJECT -f virtual-service-reviews-80-20.yaml
 
 ### Lab 2: 全流量切換 v2 
 
-開發人員經由 Lab 1 測試後認為 reviews v2 版本可以正常運作於線上環境中，故將 reviews 的流量完全切換至 v2 的版本
+開發人員經由 Lab 1 測試後認為 reviews v2 版本可以正常運作於線上環境中，並將星星顏色呈現`黑色`，故將 reviews 的流量完全切換至 v2 的版本
 
 ```bash
 cat virtual-service-reviews-v2.yaml
@@ -41,8 +41,34 @@ oc apply -n $BOOKINFO_PROJECT -f virtual-service-reviews-v2.yaml
 
 Istio 可以基於不同的請求內容將流量導到不同的版本，這種情境也常見於 A/B 測試場景
 
-### Lab 3: 針對 Chrome 瀏覽器進行
+### Lab 3: 針對 Chrome 瀏覽器進行導流
 
+開發人員經由 Lab 2 測試後認為 reviews v2 於 Chrome 瀏覽器須將星星顏色改成`紅色`，故將使用 Chrome 瀏覽器瀏覽的流量導向 reviews v3，其餘則保持 reviews v2，呈現`黑色`星號
+
+```bash
+cat virtual-service-reviews-chrome.yaml
+oc apply -n $BOOKINFO_PROJECT -f virtual-service-reviews-chrome.yaml
+```
+
+#### 模擬瀏覽器 User-Agent: Chrome
+```bash
+# If the user-agent is Chrome
+while true; do sleep 1; curl -A "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36" -s http://${GATEWAY_URL}/productpage | grep -o "color=\"red\"";done
+```
+
+![](../images/04-traffics-reviews-user-agent-chrome.png)
+
+#### 任意瀏覽器呈現
+```bash
+# Else
+while true; do sleep 1; curl -s http://${GATEWAY_URL}/productpage | grep -o "color=\"black\"";done
+```
+
+![](../images/04-traffics-reviews-user-agent-any.png)
+
+
+#### 實際瀏覽器顯示差異
+![](../images/04-traffics-reviews-browser.png)
 
 
 
@@ -51,3 +77,6 @@ Istio 可以基於不同的請求內容將流量導到不同的版本，這種�
 oc delete -n $BOOKINFO_PROJECT -f destination-rule-all.yaml
 oc delete -n $BOOKINFO_PROJECT -f virtual-service-all-v1.yaml
 ```
+
+## References
+- [List of User Agents](https://developers.whatismybrowser.com/useragents/explore/)

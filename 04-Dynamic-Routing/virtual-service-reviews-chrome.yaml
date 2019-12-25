@@ -4,14 +4,18 @@ metadata:
   name: reviews
 spec:
   hosts:
-  - reviews
+    - reviews
   http:
+  - match:
+    - headers:
+        User-Agent:
+          regex: .*(Chrome/([\d.]+)).*
+    route:
+    - destination:
+        host: reviews
+        subset: v3
   - route:
     - destination:
         host: reviews
-        subset: v1
-      weight: 80
-    - destination:
-        host: reviews
         subset: v2
-      weight: 20
+
