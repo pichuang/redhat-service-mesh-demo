@@ -1,10 +1,13 @@
-# Red Hat Service Mesh Demo
+![](/images/redhat-slogan.jpg)
 
+# Pichuang's Red Hat Service Mesh Demo
 
-- Prerequisite
-- Lab 1: Dynamic Routing
-- Lab 2
-
+- [x] Lab 0: Install Service Mesh Operator
+- [x] Lab 1: Deploy Control Plane
+- [x] Lab 2: Deploy Bookinfo
+- [ ] Lab 3: Observability
+- [x] Lab 4: Dynamic Routing
+- [ ] Lab 5: Traffic Government
 
 ## References
 - [OpenShift 4.2 - Installing Red Hat OpenShift Service Mesh](https://docs.openshift.com/container-platform/4.2/service_mesh/service_mesh_install/installing-ossm.html)
