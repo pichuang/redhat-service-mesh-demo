@@ -18,7 +18,7 @@ oc new-project $BOOKINFO_PROJECT
 oc get smmr default -n istio-system -o json --export | jq '.spec.members += ["'"$BOOKINFO_PROJECT"'"]' | oc apply -n istio-system -f -
 
 # Apply bookinfo
-oc apply -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/${ISTIO_RELEASE}/samples/bookinfo/platform/kube/bookinfo.yaml
+oc apply -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/$ISTIO_RELEASE/samples/bookinfo/platform/kube/bookinfo.yaml
 
 # Patch sidecar annotation into template in deployment object
 for deployment in $(oc get deployments -o jsonpath='{.items[*].metadata.name}' -n $BOOKINFO_PROJECT);do
@@ -26,7 +26,7 @@ for deployment in $(oc get deployments -o jsonpath='{.items[*].metadata.name}' -
 done
 
 # Apply bookinfo gateway
-oc apply -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/${ISTIO_RELEASE}/samples/bookinfo/networking/bookinfo-gateway.yaml
+oc apply -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/$ISTIO_RELEASE/samples/bookinfo/networking/bookinfo-gateway.yaml
 ```
 
 ![](../images/02-deploy-bookinfo.gif)
@@ -46,7 +46,7 @@ while true; do sleep 1; curl -s http://${GATEWAY_URL}/productpage | grep -o "<ti
 
 ## Clean Up
 ```bash
-oc delete -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/${ISTIO_RELEASE}/samples/bookinfo/networking/bookinfo-gateway.yaml
-oc delete -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/${ISTIO_RELEASE}/samples/bookinfo/platform/kube/bookinfo.yaml
+oc delete -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/$ISTIO_RELEASE/samples/bookinfo/networking/bookinfo-gateway.yaml
+oc delete -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/$ISTIO_RELEASE/samples/bookinfo/platform/kube/bookinfo.yaml
 oc delete project $BOOKINFO_PROJECT
 ```
