@@ -3,7 +3,7 @@
 ### Prerequisite 
 ```bash
 # Setup Project name
-BOOKINFO_PROJECT=bookinfo-red && echo $BOOKINFO_PROJECT
+BOOKINFO_PROJECT=bookinfo && echo $BOOKINFO_PROJECT
 
 # Get Istio Latest Release Version
 ISTIO_RELEASE=$(curl --silent https://api.github.com/repos/istio/istio/releases/latest |grep -Po '"tag_name": "\K.*?(?=")') && echo $ISTIO_RELEASE
