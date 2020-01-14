@@ -1,0 +1,1 @@
+../02-Deploy-Bookinfo/2-test-ingress-traffic.sh
