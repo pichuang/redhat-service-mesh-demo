@@ -136,9 +136,15 @@ oc edit smmr -n istio-system
 ```bash
 oc get smmr -n istio-system
 ```
-
+- 修改spec區塊，並且加入bookinfo這個project
+```
+spec:
+  members:
+  - default
+  - bookinfo
+```
 - Expected Output
 ```bash
 NAME      MEMBERS
-default   [bookinfo-red bookinfo-blue]
+default   [default bookinfo]
 ```
