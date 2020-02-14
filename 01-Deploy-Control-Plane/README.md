@@ -15,7 +15,6 @@ oc new-project istio-system
 cat > istio-installation.yaml << EOF
 ---
 apiVersion: maistra.io/v1
-apiVersion: maistra.io/v1
 kind: ServiceMeshControlPlane
 metadata:
   name: basic-install
