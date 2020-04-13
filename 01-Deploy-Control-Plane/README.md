@@ -47,13 +47,13 @@ EOF
 
 - 執行
 ```bash
-oc create -n istio-system -f istio-installation.yaml
+oc apply -n istio-system -f istio-installation.yaml
 ```
 
 - 監視變更狀態
 ```bash
 # oc get pods -n istio-system -w
-watch -n2 oc get pods -n istio-system 
+watch -n2 oc get pods -n istio-system
 ```
 
 ### 驗證 `Service Mesh Control Plane` 已安裝完畢
@@ -120,7 +120,7 @@ EOF
 
 - 執行
 ```bash
-oc create -n istio-system -f servicemeshmemberroll-default.yaml
+oc apply -n istio-system -f servicemeshmemberroll-default.yaml
 ```
 
 - Expected Web view
