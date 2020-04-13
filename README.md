@@ -2,8 +2,8 @@
 
 # Phil's Red Hat Service Mesh Demo
 
-Red Hat OpenShift Service Mesh: *v1.1.0*
-Last Update: *20200413*
+> Red Hat OpenShift Service Mesh: *v1.1.0*
+> Last Update: *20200413*
 
 
 - [x] Lab 0: Install Service Mesh Operator
