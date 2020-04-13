@@ -13,6 +13,8 @@ jaeger-product           Red Hat Operators   11h
 elasticsearch-operator   Red Hat Operators   11h
 ```
 
+![](../images/00-service-mesh-operators.png)
+
 ### Inspect the Operators
 ```bash
 oc describe packagemanifests servicemeshoperator -n openshift-marketplace
