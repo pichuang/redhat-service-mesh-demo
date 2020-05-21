@@ -1,7 +1,7 @@
 ## Prerequisite
 ### View the specific of Operator available to the cluster from OperatorHub
 ```bash
-oc get packagemanifests {servicemeshoperator,kiali-ossm,jaeger-product,elasticsearch-operator} -n openshift-marketplace
+./1-view-operator.sh
 ```
 
 - Expected Output
@@ -22,26 +22,8 @@ oc describe packagemanifests servicemeshoperator -n openshift-marketplace
 
 ## Install Red Hat Service Mesh Operator
 
-### Subscribe `service-mesh-subscription.yaml`
 ```bash
-cat > service-mesh-subscription.yaml << EOF
----
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
-metadata:
-  name: servicemeshoperator
-  namespace: openshift-operators
-spec:
-  channel: "1.0"
-  name: servicemeshoperator
-  source: redhat-operators
-  sourceNamespace: openshift-marketplace
-EOF
-```
-
-- Apply
-```bash
-oc apply -f service-mesh-subscription.yaml
+./2-subscribe-service-mesh.sh
 ```
 
 ### Validate the subscription is successed
@@ -51,11 +33,11 @@ oc get sub -n openshift-operators
 
 - Expected Output
 ```bash
-NAME                                                                PACKAGE                  SOURCE             CHANNEL
-elasticsearch-operator-4.2-redhat-operators-openshift-marketplace   elasticsearch-operator   redhat-operators   4.2
-jaeger-product-stable-redhat-operators-openshift-marketplace        jaeger-product           redhat-operators   stable
-kiali-ossm-stable-redhat-operators-openshift-marketplace            kiali-ossm               redhat-operators   stable
-servicemeshoperator                                                 servicemeshoperator      redhat-operators   1.0
+NAME                     PACKAGE                  SOURCE             CHANNEL
+elasticsearch-operator   elasticsearch-operator   redhat-operators   4.3
+jaeger-product           jaeger-product           redhat-operators   stable
+kiali-ossm               kiali-ossm               redhat-operators   stable
+servicemeshoperator      servicemeshoperator      redhat-operators   stable
 ```
 
 - Excepted Web view

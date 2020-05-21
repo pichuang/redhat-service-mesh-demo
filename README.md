@@ -2,8 +2,8 @@
 
 # Phil's Red Hat Service Mesh Demo
 
-> Red Hat OpenShift Service Mesh: *v1.1.0*
-> Last Update: *20200413*
+> Red Hat OpenShift Service Mesh: *v1.1.2*
+> Last Update: *20200521*
 
 
 - [x] Lab 0: Install Service Mesh Operator
@@ -13,9 +13,9 @@
 - [x] Lab 4: Dynamic Routing
 - [ ] Lab 5: Traffic Government
 
-On going site project...
+On going side project...
 
 ## References
-- [OpenShift 4.3 - Installing Red Hat OpenShift Service Mesh](https://docs.openshift.com/container-platform/4.3/service_mesh/service_mesh_install/installing-ossm.html)
+- [OpenShift 4.4 - Installing Red Hat OpenShift Service Mesh](https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_install/installing-ossm.html)
 - [workshop6/service-mesh](https://gitlab.com/workshop6/service-mesh)
 - [theodor2311/istio](https://github.com/theodor2311/istio)

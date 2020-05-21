@@ -20,22 +20,46 @@ metadata:
   name: basic-install
   namespace: istio-system
 spec:
+  version: v1.1
   istio:
     gateways:
       istio-egressgateway:
         autoscaleEnabled: false
+        autoscaleMin: 1
+        autoscaleMax: 5
       istio-ingressgateway:
         autoscaleEnabled: false
+        autoscaleMin: 1
+        autoscaleMax: 5
+        ior_enabled: false
     mixer:
       policy:
         autoscaleEnabled: false
+        autoscaleMin: 1
+        autoscaleMax: 5
       telemetry:
         autoscaleEnabled: false
+        autoscaleMin: 1
+        autoscaleMax: 5
+        resources:
+          cpu: 100m
+          memory: 1G
+        limits:
+          cpu: 500m
+          memory: 4G
     pilot:
       autoscaleEnabled: false
-      traceSampling: 100
+      traceSampling: 100.0
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
     kiali:
       enabled: true
+      dashboard:
+        user: admin
+        passphrase: redhat
+        viewOnlyMode: false
     grafana:
       enabled: true
     tracing:
