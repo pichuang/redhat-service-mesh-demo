@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BOOKINFO_PROJECT="${1:-bookinfo}"
-ISTIO_RELEASE="1.4.3" # Get Istio Latest Release Version
+ISTIO_RELEASE="release-1.5" # Get Istio Latest Release Version
 
 # Setup Project name
 echo "The project name is $BOOKINFO_PROJECT"
@@ -23,3 +23,4 @@ done
 
 # Apply bookinfo gateway
 oc apply -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/$ISTIO_RELEASE/samples/bookinfo/networking/bookinfo-gateway.yaml
+
