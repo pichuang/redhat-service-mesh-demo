@@ -122,6 +122,8 @@ pod/prometheus-6488c47945-9tq66              2/2     Running   0          5m43s
 - Expected Web view
 ![](../images/01-installed-service-mesh-control-plane.png)
 
+![](../images/01-developer-view.png)
+
 
 ### 新增 `Service Mesh Member Rolls`
 ```bash
