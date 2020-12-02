@@ -2,11 +2,11 @@
 
 # Phil's Red Hat Service Mesh Demo
 
-> Last Update: *20200618*
+> Last Update: *20201202*
 
 ## Test Environment
-- Red Hat OpenShift Container Platform: *4.4.6*
-- Red Hat OpenShift Service Mesh: *v1.1.2*
+- Red Hat OpenShift Container Platform: *4.6*
+- Red Hat OpenShift Service Mesh: *v2.0*
 
 
 ## Agenda
