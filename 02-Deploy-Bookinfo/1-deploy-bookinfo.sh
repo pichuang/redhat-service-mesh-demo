@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BOOKINFO_PROJECT="${1:-bookinfo}"
-ISTIO_RELEASE="release-1.5" # Get Istio Latest Release Version
+ISTIO_RELEASE="release-1.6" # Get Istio Latest Release Version
 
 # Setup Project name
 echo "The project name is $BOOKINFO_PROJECT"
@@ -11,7 +11,7 @@ oc new-project $BOOKINFO_PROJECT
 
 # TODO: Condition
 # Add project into service mesh member
-oc get smmr default -n istio-system -o json --export | jq '.spec.members += ["'"$BOOKINFO_PROJECT"'"]' | oc apply -n istio-system -f -
+oc get smmr default -n istio-system -o json | jq '.spec.members += ["'"$BOOKINFO_PROJECT"'"]' | oc apply -n istio-system -f -
 
 # Apply bookinfo
 oc apply -n $BOOKINFO_PROJECT -f https://raw.githubusercontent.com/istio/istio/$ISTIO_RELEASE/samples/bookinfo/platform/kube/bookinfo.yaml

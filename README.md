@@ -2,11 +2,11 @@
 
 # Phil's Red Hat Service Mesh Demo
 
-> Last Update: *20201202*
+> Last Update: *20210221*
 
 ## Test Environment
-- Red Hat OpenShift Container Platform: *4.6*
-- Red Hat OpenShift Service Mesh: *v2.0*
+- Red Hat OpenShift Container Platform: *4.6.17*
+- Red Hat OpenShift Service Mesh: *v2.0.2*
 
 
 ## Agenda
@@ -21,7 +21,7 @@
 On going side project...
 
 ## References
-- [OpenShift 4.4 - Installing Red Hat OpenShift Service Mesh](https://docs.openshift.com/container-platform/4.4/service_mesh/service_mesh_install/installing-ossm.html)
+- [OpenShift 4.6 - Installing Red Hat OpenShift Service Mesh](https://docs.openshift.com/container-platform/4.6/service_mesh/service_mesh_install/installing-ossm.html)
 - [workshop6/service-mesh](https://gitlab.com/workshop6/service-mesh)
 - [theodor2311/istio](https://github.com/theodor2311/istio)
 - [OpenShift Service Mesh - redhat gov](http://redhatgov.io/workshops/openshift_service_mesh/)
